@@ -21,7 +21,7 @@ pip install -r requirements.txt
 
 We follow the [BuildFormer](https://github.com/WangLibo1995/BuildFormer) to pre-process all the datasets.
 And then follow the [DSAT-Net](https://github.com/stdcoutzrh/BuildingExtraction) to further process Massachusetts dataset.
-More specifically, we use [split_1500_to_512.py](https://github.com/planzDB/EB-TDFNet/tools/split_1500_to_512.py) to resize images from 1500x1500 to 512x512.
+More specifically, we use [split_1500_to_512.py](https://github.com/planzDB/EB-TDFNet/blob/main/tools/split_1500_to_512.py) to resize images from 1500x1500 to 512x512.
 
 ```
 python EB-TDFNet/tools/split_1500_to_512.py
