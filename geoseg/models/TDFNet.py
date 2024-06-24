@@ -377,9 +377,9 @@ class DWconv(nn.Module):
         return out
 
 
-class BiFFM(nn.Module):
+class BFM(nn.Module):
     def __init__(self,ch_in, r_2, ch_out, drop_rate=0.1):
-        super(BiFFM, self).__init__()
+        super(BFM, self).__init__()
         
         self.relu = nn.ReLU(inplace=True)
 
@@ -434,9 +434,9 @@ class BiFFM(nn.Module):
         else:
             return fuse  
 
-class ATG(nn.Module):
+class EDFM(nn.Module):
     def __init__(self,ch_in,ch_out):
-        super(ATG,self).__init__()
+        super(EDFM,self).__init__()
         self.W_g = nn.Sequential(
             DWconv(ch_out, ch_out, stride=1),
             nn.BatchNorm2d(ch_out),
@@ -494,19 +494,19 @@ class TDFNet(nn.Module):
         self.Translayer_3 = BasicConv2d(4*mid_channel, 4*mid_channel, 1)
         self.Translayer_4 = BasicConv2d(8*mid_channel, 8*mid_channel, 1)  
         
-        self.fuse_mamba_cnn1 = BiFFM(ch_in=96, r_2=1, ch_out=96, drop_rate=0.)
-        self.fuse_mamba_cnn2 = BiFFM(ch_in=192, r_2=1, ch_out=192, drop_rate=0.)
-        self.fuse_mamba_cnn3 = BiFFM(ch_in=384, r_2=2, ch_out=384, drop_rate=0.)
-        self.fuse_mamba_cnn4 = BiFFM(ch_in=768, r_2=2, ch_out=768, drop_rate=0.)
+        self.fuse_mamba_cnn1 = BFM(ch_in=96, r_2=1, ch_out=96, drop_rate=0.)
+        self.fuse_mamba_cnn2 = BFM(ch_in=192, r_2=1, ch_out=192, drop_rate=0.)
+        self.fuse_mamba_cnn3 = BFM(ch_in=384, r_2=2, ch_out=384, drop_rate=0.)
+        self.fuse_mamba_cnn4 = BFM(ch_in=768, r_2=2, ch_out=768, drop_rate=0.)
         
         self.Translayer_11 = BasicConv2d(mid_channel, mid_channel, 1)
         self.Translayer_21 = BasicConv2d(2*mid_channel, mid_channel, 1)
         self.Translayer_31 = BasicConv2d(4*mid_channel, mid_channel, 1)
         self.Translayer_41 = BasicConv2d(8*mid_channel, mid_channel, 1) 
         
-        self.atg3 = ATG(ch_in=192, ch_out=96)
-        self.atg2 = ATG(ch_in=384, ch_out=192)
-        self.atg1 = ATG(ch_in=768, ch_out=384)
+        self.edfm3 = EDFM(ch_in=192, ch_out=96)
+        self.edfm2 = EDFM(ch_in=384, ch_out=192)
+        self.edfm1 = EDFM(ch_in=768, ch_out=384)
 
         self.deconv3 = nn.ConvTranspose2d(mid_channel, mid_channel, kernel_size=4, stride=2, padding=1, bias=False)
         self.deconv4 = nn.ConvTranspose2d(mid_channel, mid_channel, kernel_size=4, stride=2, padding=1, bias=False)
@@ -595,9 +595,9 @@ class TDFNet(nn.Module):
         y3 = self.fuse_mamba_cnn3(g3,f3)
         y4 = self.fuse_mamba_cnn4(g4,f4)
         
-        y31 = self.atg1(y3,y4)
-        y21 = self.atg2(y2,y31)
-        y11 = self.atg3(y1,y21)
+        y31 = self.edfm1(y3,y4)
+        y21 = self.edfm2(y2,y31)
+        y11 = self.edfm3(y1,y21)
         
         y1 = self.Translayer_11(y11)
         y2 = self.Translayer_21(y21)
