@@ -67,7 +67,6 @@ Wang, W., Yu, P., Li, M., Zhong, X., He, Y., Su, H., & Zhou, Y. (2025). TDFNet: 
 - [BuildFormer](https://github.com/WangLibo1995/BuildFormer)
 - [CLCFormer](https://github.com/long123524/CLCFormer)
 - [DSAT-Net](https://github.com/stdcoutzrh/BuildingExtraction)
-- [ConvNext](https://github.com/facebookresearch/ConvNeXt)
 - [pytorch lightning](https://www.pytorchlightning.ai/)
 - [timm](https://github.com/rwightman/pytorch-image-models)
 - [pytorch-toolbelt](https://github.com/BloodAxe/pytorch-toolbelt)
