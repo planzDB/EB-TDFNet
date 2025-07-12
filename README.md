@@ -4,7 +4,8 @@
 ## Introduction
 
 This is the code for our papers:
-[Wang, W., Yu, P., Li, M., Zhong, X., He, Y., Su, H., & Zhou, Y. (2025). TDFNet: twice decoding V-Mamba-CNN Fusion features for building extraction. Geo-Spatial Information Science, 1–20. https://doi.org/10.1080/10095020.2025.2514812](https://doi.org/10.1080/10095020.2025.2514812)
+
+Wang, W., Yu, P., Li, M., Zhong, X., He, Y., Su, H., & Zhou, Y. (2025). TDFNet: twice decoding V-Mamba-CNN Fusion features for building extraction. Geo-Spatial Information Science, 1–20. https://doi.org/10.1080/10095020.2025.2514812
 
 ## Install
 
@@ -58,6 +59,7 @@ python building_seg_test.py -c ./config/mass/tdfnet.py -o /root/autodl-tmp/Massa
 ## Citation
 
 If you find this project useful in your research, please consider citing our papers：
+
 Wang, W., Yu, P., Li, M., Zhong, X., He, Y., Su, H., & Zhou, Y. (2025). TDFNet: twice decoding V-Mamba-CNN Fusion features for building extraction. Geo-Spatial Information Science, 1–20. https://doi.org/10.1080/10095020.2025.2514812
 
 ## Acknowledgement
