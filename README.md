@@ -3,7 +3,9 @@
 
 ## Introduction
 
+This is the code for our papers:
 ```
+[Wang, W., Yu, P., Li, M., Zhong, X., He, Y., Su, H., & Zhou, Y. (2025). TDFNet: twice decoding V-Mamba-CNN Fusion features for building extraction. Geo-Spatial Information Science, 1–20. https://doi.org/10.1080/10095020.2025.2514812](https://doi.org/10.1080/10095020.2025.2514812)
 ```
 
 ## Install
@@ -21,7 +23,7 @@ pip install -r requirements.txt
 
 We follow the [BuildFormer](https://github.com/WangLibo1995/BuildFormer) to pre-process all the datasets.
 And then follow the [DSAT-Net](https://github.com/stdcoutzrh/BuildingExtraction) to further process Massachusetts dataset.
-More specifically, we use [split_1500_to_512.py](https://github.com/) to resize images from 1500x1500 to 512x512.
+More specifically, we use split_1500_to_512.py to resize images from 1500x1500 to 512x512.
 
 ```
 python EB-TDFNet/tools/split_1500_to_512.py
@@ -57,7 +59,9 @@ python building_seg_test.py -c ./config/mass/tdfnet.py -o /root/autodl-tmp/Massa
 
 ## Citation
 
+If you find this project useful in your research, please consider citing our papers：
 ```
+Wang, W., Yu, P., Li, M., Zhong, X., He, Y., Su, H., & Zhou, Y. (2025). TDFNet: twice decoding V-Mamba-CNN Fusion features for building extraction. Geo-Spatial Information Science, 1–20. https://doi.org/10.1080/10095020.2025.2514812
 ```
 
 ## Acknowledgement
